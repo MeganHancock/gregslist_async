@@ -9,13 +9,39 @@ export class House {
         this.price = data.price
         this.description = data.description
         this.creatorId = data.creatorId
+        this.creator = data.creator
         this.createdAt = new Date(data.createdAt)
         this.updatedAt = new Date(data.updatedAt)
     }
 
 
     get HouseCardHTMLTemplate() {
-        return `
+        return /*html*/`
+        <div class="col-12">
+            <div class="row bg-light rounded shadow border border-dark">
+                <div class="col-md-4 px-0">
+                    <img src="https://floorcentral.com/wp-content/uploads/2014/07/sick-house-syndrome.jpg" alt=""
+                        class="img-fluid rounded-start listing-picture">
+                </div>
+                <div class="col-md-8 p-3">
+
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h2>${this.bedrooms} Bedrooms / ${this.bathrooms} Bathroom</h2>
+                            <h3>$${this.price}</h3>
+                            <h3>Listed on ${this.createdAt}</h3>
+                        </div>
+                        <div class="me-5">
+                            <h4 class="me-5">Listed created by ${this.creator.name}</h4>
+                            <img class="creator-picture ms-2"
+                                src="${this.imgUrl}" alt="${this.bedrooms} Bedrooms / ${this.bathrooms} Bathroom">
+                        </div>
+                    </div>
+                    <p>${this.year} | ${this.levels}</p>
+                    <p>${this.description}</p>
+                </div>
+            </div>
+        </div>
         
         `
     }
