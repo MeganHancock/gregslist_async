@@ -3,11 +3,14 @@ export class House {
         this.id = data._id
         this.bedrooms = data.bedrooms
         this.bathrooms = data.bathrooms
-        this.floors = data.levels
+        this.levels = data.levels
         this.imgUrl = data.imgUrl
         this.year = data.year
         this.price = data.price
         this.description = data.description
+        this.creatorId = data.creatorId
+        this.createdAt = new Date(data.createdAt)
+        this.updatedAt = new Date(data.updatedAt)
     }
 
 
@@ -17,9 +20,6 @@ export class House {
         `
     }
 }
-
-
-
 // const houseData = {
 
 //     "_id": "645d60f381faf24223ae886b",

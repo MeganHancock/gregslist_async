@@ -1,7 +1,7 @@
 import { AppState } from "../AppState.js"
 
 export class Car {
-  constructor (data) {
+  constructor(data) {
     this.id = data.id || data._id
     this.make = data.make
     this.model = data.model
@@ -24,7 +24,7 @@ export class Car {
         <div class="col-md-4 px-0">
           <img
             src="${this.imgUrl}"
-            alt="${this.make + ' ' + this.model}" class="img-fluid rounded-start car-picture">
+            alt="${this.make + ' ' + this.model}" class="img-fluid rounded-start listing-picture">
         </div>
         <div class="col-md-8 p-3">
           <h2>${this.year} ${this.make} ${this.model}</h2>
