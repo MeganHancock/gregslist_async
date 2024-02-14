@@ -9,7 +9,7 @@ class HousesService {
 
         const newHouses = response.data.map(housePOJO => new House(housePOJO))
         console.log('mapped over houses', newHouses);
-        AppState.houses = response.data
+        AppState.houses = newHouses
     }
 
 

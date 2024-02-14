@@ -6,6 +6,63 @@
     </section>
 
 
+    <section id="houseForm" class="row card p-3 mb-3">
+        <div class="col-12">
+            <form onsubmit="app.Controller.createHouse()">
+
+                <div class="mb-3">
+                    <!-- NOTE a label's for attribute should match the id of an input tag -->
+                    <label for="houseBedrooms">Bedrooms</label>
+                    <!-- NOTE name attribute is used to target the values stored within each input -->
+                    <!-- NOTE type attribute dictates the type of input you get -->
+                    <!-- NOTE required attribute validates that the user has filled out an input field before they can submit a form  -->
+                    <!-- NOTE minlength and maxlength will validate that the user inpuuted a string with the correct amount of characters -->
+                    <input id="houseBedrooms" name="bedrooms" type="text" required maxlength="500">
+                </div>
+
+                <div class="mb-3">
+                    <label for="houseBathrooms">Bathrooms</label>
+                    <input id="houseBathrooms" name="bathrooms" type="text" required minlength="1" maxlength="500">
+                </div>
+
+                <div class="mb-3">
+                    <label for="houseYear">Year Built</label>
+                    <!-- NOTE min and max attributes validate the range of a number for an input with type number-->
+                    <input id="houseYear" name="year" type="number" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="housePrice">Price</label>
+                    <input id="housePrice" name="price" type="number" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="houseImgUrl">Image URL</label>
+                    <!-- NOTE type url will validate that you are passing a url as a value -->
+                    <input id="houseImgUrl" name="imgUrl" type="url" required maxlength="500">
+                </div>
+
+                <div class="mb-3">
+                    <label for="houseDescription">Description of House</label>
+                    <!-- NOTE textarea is just a longer text input field -->
+                    <textarea id="houseDescription" name="description" class="w-100" rows="10"
+                        maxlength="500"></textarea>
+                </div>
+
+                <div class="text-end mb-3">
+                    <!-- NOTE important that we have a button with type of submit in order to trigger our onsubmit handler on the top of the form -->
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+
+        </div>
+
+    </section>
+
+
+
+
+
     <div id="houseListings" class="row">
 
         <!-- <div class="col-12">

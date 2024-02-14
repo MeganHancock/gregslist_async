@@ -1,13 +1,15 @@
+import { AppState } from "../AppState.js"
+
 export class House {
     constructor(data) {
-        this.id = data._id
+        this.id = data._id || data.id
         this.bedrooms = data.bedrooms
         this.bathrooms = data.bathrooms
         this.levels = data.levels
         this.imgUrl = data.imgUrl
         this.year = data.year
         this.price = data.price
-        this.description = data.description
+        this.description = data.description || ''
         this.creatorId = data.creatorId
         this.creator = data.creator
         this.createdAt = new Date(data.createdAt)
@@ -16,14 +18,14 @@ export class House {
 
 
     get HouseCardHTMLTemplate() {
-        return /*html*/`
-        <div class="col-12">
+        return `
+        <div class="col-12 mb-3">
             <div class="row bg-light rounded shadow border border-dark">
                 <div class="col-md-4 px-0">
-                    <img src="https://floorcentral.com/wp-content/uploads/2014/07/sick-house-syndrome.jpg" alt=""
+                    <img src="${this.imgUrl}" alt="${this.bedrooms} Bedrooms / ${this.bathrooms} Bathroom"
                         class="img-fluid rounded-start listing-picture">
                 </div>
-                <div class="col-md-8 p-3">
+                <div class="col-md-8 p-3 bg-white">
 
                     <div class="d-flex justify-content-between">
                         <div>
@@ -31,21 +33,29 @@ export class House {
                             <h3>$${this.price}</h3>
                             <h3>Listed on ${this.createdAt}</h3>
                         </div>
-                        <div class="me-5">
-                            <h4 class="me-5">Listed created by ${this.creator.name}</h4>
-                            <img class="creator-picture ms-2"
-                                src="${this.imgUrl}" alt="${this.bedrooms} Bedrooms / ${this.bathrooms} Bathroom">
-                        </div>
+                       
                     </div>
-                    <p>${this.year} | ${this.levels}</p>
+                    <p>Year Built: ${this.year} | Levels: ${this.levels}</p>
                     <p>${this.description}</p>
+
+                    <div class="m-3 d-flex justify-content-end align-items-baseline text-center p-1">
+                    <p class="me-5">Listed by ${this.creator.name}</p>
+                    <img class="creator-picture m-1"
+                        src="${this.creator.picture}" alt="${this.creator.name}">
+
                 </div>
+
+                
+            </div>
+
             </div>
         </div>
         
         `
     }
 }
+
+
 // const houseData = {
 
 //     "_id": "645d60f381faf24223ae886b",
